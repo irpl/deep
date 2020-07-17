@@ -3,7 +3,7 @@
     <section class="container">
       <div class="deep">
         <h1>tl;dr</h1>
-        <span>I like to build things, I'm a maker and teacher.</span>
+        <span>I like to build things; I'm a maker and teacher.</span>
       </div>
       <div class="doop">
         <h2>Ok, here we go</h2>
