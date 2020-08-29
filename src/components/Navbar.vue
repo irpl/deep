@@ -5,10 +5,11 @@
         <div class="nav-title">phillip logan</div>
         <div class="nav-subtitle">something</div>
       </div>
+      <!-- {{currentRoute}} -->
       <div class="navs">
-        <div class="nav-btn">projects</div>
-        <div class="nav-btn">work</div>
-        <div class="nav-btn">about</div>
+        <router-link to="/projects"><div class="nav-btn" :class="{'active': (currentRoute === 'projects')}">projects</div></router-link>
+        <router-link to="/work"><div class="nav-btn" :class="{'active': (currentRoute === 'work')}">work</div></router-link>
+        <router-link to="/about"><div class="nav-btn" :class="{'active': (currentRoute === 'about')}">about</div></router-link>
         <!-- <div class="nav-btn">jello pudding</div> -->
       </div>
     </div>
@@ -16,10 +17,19 @@
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    currentRoute() {
+      return this.$route.name;
+    }
+  }
+};
 </script>
 
 <style>
+a {
+    text-decoration: none;
+}
 .navbar {
   padding: 1rem 0;
   max-width: 630px;
@@ -41,7 +51,8 @@ export default {};
     margin-left: unset;
   }
 }
-.nav-btn:last-of-type {
+/* .nav-btn:last-of-type */
+.active {
   background-color: black;
   border-radius: 5px;
   color: white;

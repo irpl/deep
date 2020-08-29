@@ -1,25 +1,40 @@
 <template>
   <div id="app">
     <Navbar />
-    <About />
-    <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
+    <router-view :works="works" :projects="projects" :about="about"/>
   </div>
 </template>
 
 <script>
 import Navbar from "./components/Navbar.vue";
-import About from "./components/About.vue";
+import axios from 'axios'
 
 export default {
   name: "App",
   components: {
-    Navbar,
-    About
+    Navbar
+  },
+  data: function () {
+    return {
+      works: [],
+      projects: [],
+      about: []
+    }
+  },
+  beforeMount() {
+    const w = axios("/wp-json/wp/v2/work");
+    const p = axios("/wp-json/wp/v2/projects");
+    const a = axios("/wp-json/wp/v2/posts")
+
+    Promise.all([w, p, a])
+      .then(values => {
+        this.works = values[0].data;
+        this.projects = values[1].data;
+        this.about = values[2].data;
+      })
   }
 };
 </script>
-
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
@@ -44,40 +59,88 @@ body {
   background-color: #f2f0f4;
   padding: 0 1em;
 }
-
 *,
 *:before,
 *:after {
   box-sizing: border-box;
   margin: 0;
 }
+main {
+  /* padding: 60px 0; */
+  margin: 0 auto;
+}
+.container {
+  /* display: grid; */
+  /* grid-template-columns: repeat(12, 1fr); */
+  grid-gap: 1.5rem;
+  max-width: 630px;
 
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
+  margin: 0 auto;
+  /* width: 50%; */
+  /* max-width: 90vw; */
+  /* margin: 0 auto; */
+  /* min-height: 100vh; */
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* text-align: center; */
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 768px) {
+  .container {
+    display: block;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+/* @media only screen and (min-width: 768px) {...}  */
+h1 {
+  font-size: 35px;
+}
+h1,
+h2 {
+  margin-top: 0;
+  line-height: 1.3;
+  font-weight: 400;
+  /* line-height: 1.3; */
+  margin-bottom: 0.5em;
+}
+p {
+  margin-bottom: 1.5em;
+}
+/* img {
+  width: 100%;
+} */
+.links {
+  padding-top: 15px;
+}
+.deep {
+  padding: 20px 0;
+  margin-bottom: 30px;
+  /* max-width: 630px; */
+}
+.doop {
+  background-color: white;
+  margin: 0 auto 40px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(25, 17, 34, 0.1);
+}
+a {
   text-decoration: none;
-  padding: 10px 30px;
+  color: black;
 }
-
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
+.doop-title {
+  margin-top: 0;
+  line-height: 1.3;
+  font-weight: 400;
+  margin-bottom: 0.5em;
+  font-size: 1.5em;
 }
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+.doop-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 </style>
