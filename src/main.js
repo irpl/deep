@@ -5,7 +5,7 @@ import axios from 'axios'
 
 require('dotenv').config()
 
-axios.defaults.baseURL = 'https://philliplogan.com:8000' //'http://localhost:8000'
+axios.defaults.baseURL = 'http://philliplogan.com:8000' //'http://localhost:8000'
 Vue.prototype.$http = axios
 Vue.config.productionTip = false
 

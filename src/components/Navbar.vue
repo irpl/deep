@@ -1,14 +1,16 @@
 <template>
   <header class="navbar">
     <div class="content-wrapper">
-      <div class="logo">
-        <div class="nav-title">phillip logan</div>
-        <div class="nav-subtitle">something</div>
-      </div>
+      <router-link to="/">
+        <div class="logo">
+          <div class="nav-title">phillip logan</div>
+          <div class="nav-subtitle">something</div>
+        </div>
+      </router-link>
       <!-- {{currentRoute}} -->
       <div class="navs">
+        <router-link to="/"><div class="nav-btn" :class="{'active': (currentRoute === 'work')}">work</div></router-link>
         <router-link to="/projects"><div class="nav-btn" :class="{'active': (currentRoute === 'projects')}">projects</div></router-link>
-        <router-link to="/work"><div class="nav-btn" :class="{'active': (currentRoute === 'work')}">work</div></router-link>
         <router-link to="/about"><div class="nav-btn" :class="{'active': (currentRoute === 'about')}">about</div></router-link>
         <!-- <div class="nav-btn">jello pudding</div> -->
       </div>
@@ -44,6 +46,7 @@ a {
 .nav-btn {
   height: 80%;
   margin-left: 1.5rem;
+  padding: 0 1rem;
   text-align: center;
 }
 @media only screen and (max-width: 600px) {

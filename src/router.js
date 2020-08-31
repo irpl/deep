@@ -15,7 +15,7 @@ export default new Router({
       component: Projects
     },
     {
-      path: '/work',
+      path: '/',
       name: 'work',
       component: Work
     },
