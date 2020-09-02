@@ -22,9 +22,9 @@ export default {
     }
   },
   beforeMount() {
-    const w = axios("/wp-json/wp/v2/work");
-    const p = axios("/wp-json/wp/v2/projects");
-    const a = axios("/wp-json/wp/v2/posts")
+    const w = axios("/works");
+    const p = axios("/projects");
+    const a = axios("/posts")
 
     Promise.all([w, p, a])
       .then(values => {

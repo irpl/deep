@@ -9,11 +9,11 @@
       <div v-for="(project, index) in projects" :key=index>
         <div class="doop">
           <div class="doop-top">
-            <span class="doop-title">{{project.acf.title}}</span>
+            <span class="doop-title">{{project.title}}</span>
             <!-- <span class="doop-duration">{{project.acf.duration}}</span> -->
           </div>
-          <span>{{project.acf.link}}</span>
-          <p>{{project.acf.description}}</p>
+          <span>{{project.link}}</span>
+          <p>{{project.description}}</p>
         </div>
       </div>
       <!-- <div class="img-container">
