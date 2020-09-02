@@ -9,11 +9,11 @@
       <div v-for="(work, index) in works" :key=index>
         <div class="doop">
           <div class="doop-top">
-            <span class="doop-title">{{work.acf.position}}</span>
-            <span class="doop-duration">{{work.acf.duration}}</span>
+            <span class="doop-title">{{work.position}}</span>
+            <span class="doop-duration">{{work.duration}}</span>
           </div>
-          <span>{{work.acf.where}}</span>
-          <p>{{work.acf.description}}</p>
+          <span>{{work.where}}</span>
+          <p>{{work.description}}</p>
         </div>
       </div>      
     </section>

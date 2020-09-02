@@ -6,8 +6,8 @@
         <span>I like to build things; I'm a maker and teacher.</span>
       </div>
       <div v-if="about[0]" class="doop">
-        <h2>{{about[0].title.rendered}}</h2>
-        <div v-html="about[0].content.rendered"></div>
+        <h2>{{about[0].title}}</h2>
+        <div v-html="about[0].body"></div>
         <!-- <p>From as far back as I can remember, I was one who was more interested in finding that green circuit board in my remote controlled cars than race them. I always knew that I would find my place in the industry of coding and electronics.</p> -->
         <!-- <p>Being born and raised in Kingston, Jamaica, it wasn't so easy getting access information about it and it also wasn't so common, happening upon a like minded person. There was always a lack of emphasis put on the importance of technological development.</p>        <p>To change this and enhance my passion, I graduated from the University of the West Indies with a degree in Computer Systems Engineering, where I made my future in computing and electronics concrete. And the more I learned, the more I wanted to share and help others blossom their curiosity into a potential career.</p> -->
         <!-- <p>I enjoy tutoring in my spare time and I also teach introductory web development and electronics professionally on a tertiary level at my alma mater.</p> -->

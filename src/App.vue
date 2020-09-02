@@ -21,7 +21,7 @@ export default {
       about: []
     }
   },
-  beforeMount() {
+  created() {
     const w = axios("/works");
     const p = axios("/projects");
     const a = axios("/posts")
