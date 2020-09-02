@@ -18,13 +18,13 @@ export default {
     return {
       works: [],
       projects: [],
-      about: []
+      about: null
     }
   },
   created() {
     const w = axios("/works");
     const p = axios("/projects");
-    const a = axios("/posts")
+    const a = axios("/about")
 
     Promise.all([w, p, a])
       .then(values => {
