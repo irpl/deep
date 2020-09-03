@@ -11,7 +11,7 @@
             <span class="doop-title">{{project.title}}</span>
             <a :href="`https://${project.link}`">{{project.link}}</a>
           </div>
-          <p class="doop-body">{{project.description}}</p>
+          <div class="doop-body" v-html="project.description"></div>
         </div>
       </div>
     </section>
@@ -22,14 +22,3 @@ export default {
   props: ['projects'],
 };
 </script>
-<style scoped>
-/* .img-container {
-  display: flex;
-}
-img {
-  width: 50%;
-  margin: 0 auto;  
-  margin-top: 60px;
-  opacity: .25;
-} */
-</style>
