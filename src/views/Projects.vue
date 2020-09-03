@@ -5,20 +5,15 @@
         <h1>Projects</h1>
         <span>Stuff I made and stuff I helped make</span>
       </div>
-      
       <div v-for="(project, index) in projects" :key=index>
         <div class="doop">
           <div class="doop-top">
             <span class="doop-title">{{project.title}}</span>
-            <!-- <span class="doop-duration">{{project.acf.duration}}</span> -->
+            <a :href="`https://${project.link}`">{{project.link}}</a>
           </div>
-          <span>{{project.link}}</span>
-          <p>{{project.description}}</p>
+          <p class="doop-body">{{project.description}}</p>
         </div>
       </div>
-      <!-- <div class="img-container">
-        <img src="@/assets/projects.jpg" alt="" >
-      </div> -->
     </section>
   </main>
 </template>

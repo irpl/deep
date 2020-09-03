@@ -144,7 +144,9 @@ a {
   align-items: center;
 }
 .doop-where {
-  margin-bottom: 0.5em;
   font-size: 11pt;
+}
+.doop-body {
+  margin-top: 0.5em;
 }
 </style>

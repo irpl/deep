@@ -13,7 +13,7 @@
             <span class="doop-duration">{{work.duration}}</span>
           </div>
           <div class="doop-where">{{work.where}}</div>
-          <div v-html="work.description"></div>
+          <div class="doop-body" v-html="work.description"></div>
         </div>
       </div>      
     </section>
