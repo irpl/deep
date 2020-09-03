@@ -28,8 +28,8 @@ export default {
 
     Promise.all([w, p, a])
       .then(values => {
-        this.works = values[0].data;
-        this.projects = values[1].data;
+        this.works = values[0].data.sort((a, b) => a.order - b.order);
+        this.projects = values[1].data.sort((a, b) => a.order - b.order);
         this.about = values[2].data;
       })
   }
@@ -135,12 +135,16 @@ a {
   margin-top: 0;
   line-height: 1.3;
   font-weight: 400;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.2em;
   font-size: 1.5em;
 }
 .doop-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.doop-where {
+  margin-bottom: 0.5em;
+  font-size: 11pt;
 }
 </style>

@@ -12,8 +12,8 @@
             <span class="doop-title">{{work.position}}</span>
             <span class="doop-duration">{{work.duration}}</span>
           </div>
-          <span>{{work.where}}</span>
-          <p>{{work.description}}</p>
+          <div class="doop-where">{{work.where}}</div>
+          <div v-html="work.description"></div>
         </div>
       </div>      
     </section>
