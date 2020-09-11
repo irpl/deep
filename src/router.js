@@ -1,28 +1,22 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import Work from './views/Work.vue'
-import About from './views/About.vue'
-import Projects from './views/Projects.vue'
+import Vue from "vue";
+import Router from "vue-router";
+import About from "./views/About.vue";
+import Projects from "./views/Projects.vue";
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
-  mode: 'history',
+  mode: "history",
   routes: [
     {
-      path: '/projects',
-      name: 'projects',
-      component: Projects
+      path: "/projects",
+      name: "projects",
+      component: Projects,
     },
     {
-      path: '/',
-      name: 'work',
-      component: Work
+      path: "/",
+      name: "about",
+      component: About,
     },
-    {
-      path: '/about',
-      name: 'about',
-      component: About
-    }
-  ]
-})
+  ],
+});

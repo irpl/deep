@@ -1,38 +1,44 @@
 <template>
   <div id="app">
     <Navbar />
-    <router-view :works="works" :projects="projects" :about="about"/>
+    <router-view :works="works" :projects="projects" :about="about" :sides="sides" />
   </div>
 </template>
 
 <script>
 import Navbar from "./components/Navbar.vue";
-import axios from 'axios'
+import axios from "axios";
 
 export default {
   name: "App",
   components: {
-    Navbar
+    Navbar,
   },
-  data: function () {
+  data: function() {
     return {
       works: [],
+      sides: [],
       projects: [],
-      about: null
-    }
+      about: null,
+    };
   },
   created() {
-    const w = axios("/works");
-    const p = axios("/projects");
-    const a = axios("/about")
+    axios("/works")
+      .then((res) => (this.works = res.data.sort((a, b) => a.order - b.order)))
+      .catch();
 
-    Promise.all([w, p, a])
-      .then(values => {
-        this.works = values[0].data.sort((a, b) => a.order - b.order);
-        this.projects = values[1].data.sort((a, b) => a.order - b.order);
-        this.about = values[2].data;
-      })
-  }
+    axios("/sides")
+      .then((res) => (this.sides = res.data.sort((a, b) => a.order - b.order)))
+      .catch();
+
+    axios("/projects")
+      .then((res) => (this.projects = res.data.sort((a, b) => a.order - b.order)))
+      .catch();
+
+    axios("/about")
+      .then((res) => (this.about = res.data))
+      .catch();
+  },
 };
 </script>
 <style>
@@ -96,7 +102,7 @@ p {
 }
 .deep {
   padding: 20px 0;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   /* max-width: 630px; */
 }
 .doop {

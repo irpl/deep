@@ -7,12 +7,9 @@
           <div class="nav-subtitle">something</div>
         </div>
       </router-link>
-      <!-- {{currentRoute}} -->
       <div class="navs">
-        <router-link to="/"><div class="nav-btn" :class="{'active': (currentRoute === 'work')}">work</div></router-link>
-        <router-link to="/projects"><div class="nav-btn" :class="{'active': (currentRoute === 'projects')}">projects</div></router-link>
-        <router-link to="/about"><div class="nav-btn" :class="{'active': (currentRoute === 'about')}">about</div></router-link>
-        <!-- <div class="nav-btn">jello pudding</div> -->
+        <router-link to="/"><div class="nav-btn" :class="{ active: currentRoute === 'about' }">about</div></router-link>
+        <router-link to="/projects"><div class="nav-btn" :class="{ active: currentRoute === 'projects' }">projects</div></router-link>
       </div>
     </div>
   </header>
@@ -23,21 +20,20 @@ export default {
   computed: {
     currentRoute() {
       return this.$route.name;
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style>
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 .navbar {
   padding: 1rem 0;
   max-width: 630px;
   margin: 0 auto;
 }
-
 .navs {
   display: flex;
   justify-content: space-between;
@@ -54,7 +50,6 @@ a {
     margin-left: unset;
   }
 }
-/* .nav-btn:last-of-type */
 .active {
   background-color: black;
   border-radius: 5px;
@@ -68,17 +63,14 @@ a {
   color: #35495e;
   letter-spacing: 1px;
 }
-
 .nav-subtitle {
   font-weight: 300;
   font-size: 0.9rem;
   color: #526488;
   word-spacing: 5px;
-  /* padding-bottom: 15px; */
 }
 .content-wrapper {
   margin: 0 auto;
-  /* max-width: 90vw; */
   display: flex;
   justify-content: space-between;
   align-items: center;
