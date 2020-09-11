@@ -51,6 +51,7 @@
             <span class="doop-title">University of the West Indies, Mona</span>
             <span class="doop-duration">2012 - 2017</span>
           </div>
+          <div class="doop-body">Computer Systems Engineering</div>
         </div>
         <div class="doop">
           <div class="doop-top">
